@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: servico-de-persistencia-deployment
+  labels:
+    app: servico-de-persistencia
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: servico-de-persistencia
+  template:
+    metadata:
+      labels:
+        app: servico-de-persistencia
+    spec:
+      containers:
+      - name: servico-de-persistencia
+        image: vtglearn/servico-de-persistencia
+        ports:
+        - containerPort: 7002
